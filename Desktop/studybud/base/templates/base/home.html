@@ -4,21 +4,13 @@
 <style>
   .home-container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 3fr 1fr;
   }
 </style>
 
 <div class="home-container">
   <div>
-    <h3>Browse Topics</h3>
-    <div>
-      <a href="{% url 'home' %}">All</a>
-    </div>
-    {% for topic in topics %}
-    <div>
-      <a href="{% url 'home' %}?q={{topic.name}}">{{topic}}</a>
-    </div>
-    {% endfor %} 
+    {% include 'base/topics_comp.html '%}
   </div>
 
   <div>
@@ -39,6 +31,10 @@
       {% endfor %}
     </div>
   </div>
+  <div>
+    {% include 'base/activity_comp.html'%}
+  </div>
+  
 </div>
 
 {% endblock %}
